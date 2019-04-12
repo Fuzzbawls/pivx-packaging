@@ -1,0 +1,62 @@
+name: pivx-core
+version: 3.2.0
+summary:   peer-to-peer network based digital currency
+description: |
+  PIVX is an MIT licensed,
+  open source, blockchain-based cryptocurrency with
+  ultra fast transactions, low fees, high network decentralization, and
+  Zero Knowledge cryptography proofs for industry-leading
+  transaction anonymity.
+
+  - [Download](https://pivx.org/wp-content/uploads/2018/10/PIVX-White.pdf) PIVX White Paper PDF
+grade: stable
+confinement: strict
+
+apps:
+  daemon:
+    command: pivxd
+    plugs: [network, network-bind]
+    environment:
+      # Override HOME so the pivx datadir is located at
+      # ~/snap/pivx/common/.pivx instead of
+      # ~/snap/pivx/current/.pivx, and each new version of the pivx
+      # snap won't have a different data directory:
+      # https://docs.snapcraft.io/environment-variables/7983
+      HOME: $SNAP_USER_COMMON
+  qt:
+    command: desktop-launch pivx-qt
+    plugs: [network, network-bind, desktop, x11]
+    environment:
+      HOME: $SNAP_USER_COMMON
+      DISABLE_WAYLAND: 1
+  cli:
+    command: pivx-cli
+    plugs: [network]
+    environment:
+      HOME: $SNAP_USER_COMMON
+
+parts:
+  pivx-core:
+    plugin: nil
+    override-build: | 
+      env | grep SNAP
+      wget https://github.com/PIVX-Project/PIVX/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS.asc
+      wget https://github.com/PIVX-Project/PIVX/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/pivx-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
+      wget https://github.com/PIVX-Project/PIVX/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/pivx-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
+      gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 6F993B250557E7B016ADE5713BDCDA2D87A881D9
+      gpg --verify SHA256SUMS.asc
+      echo "6332a71b932c27419d38033214a2039984aedd4f78ff018c5e74d9965354280b  SHA256SUMS.asc" | sha256sum --check
+      sha256sum --ignore-missing --check SHA256SUMS.asc
+      tar -xvf pivx-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
+      tar -xvf pivx-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
+      echo "Running tests ..."
+      pivx-${SNAPCRAFT_PROJECT_VERSION}/bin/test_pivx
+      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin pivx-${SNAPCRAFT_PROJECT_VERSION}/bin/pivxd
+      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin pivx-${SNAPCRAFT_PROJECT_VERSION}/bin/pivx-qt
+      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin pivx-${SNAPCRAFT_PROJECT_VERSION}/bin/pivx-cli
+      wget https://raw.githubusercontent.com/pivx-project/pivx/v${SNAPCRAFT_PROJECT_VERSION}/share/pixmaps/bitcoin128.png
+      install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pixmaps bitcoin128.png
+    build-packages:
+      - wget
+    after:
+      - desktop-qt5

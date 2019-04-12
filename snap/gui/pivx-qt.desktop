@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Name=PIVX Core
+Comment=Connect to the PIVX P2P Network
+Comment[de]=Verbinde mit dem PIVX peer-to-peer Netzwerk
+Comment[fr]=PIVX, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=PIVX, eşten eşe kriptografik sanal para birimi
+Exec=pivx.qt %u
+Terminal=false
+Type=Application
+Icon=${SNAP}/share/pixmaps/bitcoin128.png
+MimeType=x-scheme-handler/pivx;
+Categories=Office;Finance;P2P;Network;Qt;
+StartupWMClass=PIVX-qt
+
