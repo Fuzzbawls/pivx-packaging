@@ -1,0 +1,26 @@
+# It is not recommended to modify this file in-place, because it will
+# be overwritten during package upgrades. If you want to add further
+# options or overwrite existing ones then use
+# $ systemctl edit pivxd.service
+# See "man systemd.service" for details.
+
+# Note that almost all daemon options could be specified in
+# /etc/pivx/pivx.conf
+
+[Unit]
+Description=PIVX daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/pivxd -daemon -conf=/etc/pivx.conf -datadir=/var/lib/pivx -pid=/run/pivxd/pivxd.pid
+ExecStop=/usr/bin/pivx-cli stop
+# Creates /run/pivxd owned by pivx
+RuntimeDirectory=pivxd
+User=pivx
+Type=forking
+PIDFile=/run/pivxd/pivxd.pid
+Restart=on-failure
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
