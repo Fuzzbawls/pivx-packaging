@@ -1,0 +1,23 @@
+pivx (3.2.99+git9cd6016-cosmic1) cosmic; urgency=medium
+
+  * PIVX Core v3.2.99+git9cd6016 (cosmic)
+
+ -- Fuzzbawls <fuzzbawls@gmail.com>  Wed, 17 Apr 2019 21:24:16 -0700
+
+pivx (3.2.99+git9cd6016-bionic1) bionic; urgency=medium
+
+  * PIVX Core v3.2.99+git9cd6016 (bionic)
+
+ -- Fuzzbawls <fuzzbawls@gmail.com>  Wed, 17 Apr 2019 21:21:55 -0700
+
+pivx (3.2.99+git9cd6016-xenial1) xenial; urgency=medium
+
+  * PIVX Core v3.2.99+git9cd6016 (xenial)
+
+ -- Fuzzbawls <fuzzbawls@gmail.com>  Wed, 17 Apr 2019 18:05:59 -0700
+
+pivx (3.2.99+git9cd6016-trusty2) trusty; urgency=medium
+
+  * PIVX Core v3.2.99+git9cd6016 (trusty)
+
+ -- Fuzzbawls <fuzzbawls@gmail.com>  Wed, 17 Apr 2019 17:50:42 -0700
