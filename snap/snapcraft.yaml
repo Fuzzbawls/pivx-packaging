@@ -1,5 +1,5 @@
 name: pivx-core
-version: 3.2.0
+version: 3.2.1
 summary:   peer-to-peer network based digital currency
 description: |
   PIVX is an MIT licensed,
@@ -38,8 +38,12 @@ apps:
 parts:
   pivx-core:
     plugin: nil
-    override-build: | 
+    override-build: |
       env | grep SNAP
+      if [ $SNAPCRAFT_ARCH_TRIPLET = "i386-linux-gnu" ]
+      then
+        SNAPCRAFT_ARCH_TRIPLET = "i686-linux-gnu"
+      fi
       wget https://github.com/PIVX-Project/PIVX/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS.asc
       wget https://github.com/PIVX-Project/PIVX/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/pivx-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
       wget https://github.com/PIVX-Project/PIVX/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/pivx-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
@@ -54,8 +58,8 @@ parts:
       install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin pivx-${SNAPCRAFT_PROJECT_VERSION}/bin/pivxd
       install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin pivx-${SNAPCRAFT_PROJECT_VERSION}/bin/pivx-qt
       install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin pivx-${SNAPCRAFT_PROJECT_VERSION}/bin/pivx-cli
-      wget https://raw.githubusercontent.com/pivx-project/pivx/v${SNAPCRAFT_PROJECT_VERSION}/share/pixmaps/bitcoin128.png
-      install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pixmaps bitcoin128.png
+      wget https://raw.githubusercontent.com/pivx-project/pivx/v${SNAPCRAFT_PROJECT_VERSION}/share/pixmaps/pivx128.png
+      install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pixmaps pivx128.png
     build-packages:
       - wget
     after:
