@@ -40,18 +40,23 @@ parts:
     plugin: nil
     override-build: |
       env | grep SNAP
-      if [ $SNAPCRAFT_ARCH_TRIPLET = "i386-linux-gnu" ]
-      then
-        SNAPCRAFT_ARCH_TRIPLET = "i686-linux-gnu"
-      fi
       wget https://github.com/PIVX-Project/PIVX/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS.asc
       wget https://github.com/PIVX-Project/PIVX/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/pivx-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
-      wget https://github.com/PIVX-Project/PIVX/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/pivx-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
+      if [ $SNAPCRAFT_ARCH_TRIPLET = "i386-linux-gnu" ]
+      then
+        wget https://github.com/PIVX-Project/PIVX/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/pivx-${SNAPCRAFT_PROJECT_VERSION}-i686-pc-linux-gnu.tar.gz
+      else
+        wget https://github.com/PIVX-Project/PIVX/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/pivx-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
+      fi
       gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 6F993B250557E7B016ADE5713BDCDA2D87A881D9
       gpg --verify SHA256SUMS.asc
-      echo "6332a71b932c27419d38033214a2039984aedd4f78ff018c5e74d9965354280b  SHA256SUMS.asc" | sha256sum --check
       sha256sum --ignore-missing --check SHA256SUMS.asc
-      tar -xvf pivx-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
+      if [ $SNAPCRAFT_ARCH_TRIPLET = "i386-linux-gnu" ]
+      then
+        tar -xvf pivx-${SNAPCRAFT_PROJECT_VERSION}-i686-pc-linux-gnu.tar.gz
+      else
+        tar -xvf pivx-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
+      fi
       tar -xvf pivx-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
       echo "Running tests ..."
       pivx-${SNAPCRAFT_PROJECT_VERSION}/bin/test_pivx
