@@ -31,10 +31,10 @@ BuildRequires: libtool
 BuildRequires: make
 BuildRequires: autoconf
 BuildRequires: automake
-BuildRequires: openssl-devel
 BuildRequires: libevent-devel
 BuildRequires: boost-devel
 BuildRequires: miniupnpc-devel
+BuildRequires: gmp-devel
 
 %description
 PIVX is a digital cryptographic currency that uses peer-to-peer technology to
@@ -134,10 +134,6 @@ desktop-file-install %{SOURCE12} %{buildroot}%{_datadir}/applications/pivx-qt.de
 desktop-file-install %{SOURCE13} %{buildroot}%{_datadir}/applications/pivx-qt-testnet.desktop
 %endif
 
-%post libs -p /sbin/ldconfig
-
-%postun libs -p /sbin/ldconfig
-
 %pre -n pivxd
 getent group pivx >/dev/null || groupadd -r pivx
 getent passwd pivx >/dev/null ||\
@@ -163,7 +159,7 @@ rm -rf %{buildroot}
 %files qt
 %defattr(-,root,root,-)
 %license COPYING
-%doc COPYING doc/README.md doc/bips.md doc/files.md doc/reduce-traffic.md doc/release-notes.md doc/tor.md
+%doc COPYING doc/README.md doc/files.md doc/release-notes.md doc/tor.md
 %attr(0755,root,root) %{_bindir}/pivx-qt
 %attr(0644,root,root) %{_datadir}/applications/pivx-qt.desktop
 %attr(0644,root,root) %{_datadir}/pixmaps/*.ico
@@ -184,7 +180,7 @@ rm -rf %{buildroot}
 %files -n pivxd
 %defattr(-,root,root,-)
 %license COPYING
-%doc COPYING doc/README.md doc/REST-interface.md doc/bips.md doc/dnsseed-policy.md doc/files.md doc/reduce-traffic.md doc/release-notes.md doc/tor.md
+%doc COPYING doc/README.md doc/REST-interface.md doc/dnsseed-policy.md doc/files.md doc/release-notes.md doc/tor.md
 %attr(0644,root,root) %{_mandir}/man1/pivxd.1*
 %attr(0644,root,root) %{_unitdir}/pivxd.service
 %attr(0644,root,root) %{_sysconfdir}/pivx.conf
@@ -196,72 +192,5 @@ rm -rf %{buildroot}
 %exclude %{_datadir}/pivx/*.pyo
 
 %changelog
-* Sat Mar 16 2019 Evan Klitzke <evan@eklitzke.org> - 0.17.1-1
-- Update for Bitcoin 0.17.1
-
-* Tue Oct 23 2018 Evan Klitzke <evan@eklitzke.org> - 0.17.0-1
-- Update for Bitcoin 0.17.0
-
-* Mon Feb 26 2018 Evan Klitzke <evan@eklitzke.org> - 0.16.0-3
-- split out bitcoin-cli package
-
-* Fri Feb 23 2018 Evan Klitzke <evan@eklitzke.org> - 0.16.0-2
-- Add BuildRequires: systemd for F28/Rawhide
-
-* Fri Feb 23 2018 Evan Klitzke <evan@eklitzke.org> - 0.16.0-1
-- Bump for official 0.16.0 release
-
-* Fri Feb 16 2018 Evan Klitzke <evan@eklitzke.org> - 0.16.0rc4-1
-- rebuild for rc4
-
-* Sat Feb 10 2018 Evan Klitzke <evan@eklitzke.org> - 0.16.0rc3-2
-- Fix for GitHub tarballs (not created with "make dist")
-
-* Sat Feb 10 2018 Evan Klitzke <evan@eklitzke.org> - 0.16.0rc3-1
-- rebuilt for rc3
-
-* Mon Feb 05 2018 Evan Klitzke <evan@eklitzke.org> - 0.16.0rc2-2
-- rebuilt
-
-* Wed Jan 31 2018 Evan Klitzke <evan@eklitzke.org> - 0.16.0rc1-1
-- rebuilt for 0.16
-
-* Wed Dec 13 2017 Evan Klitzke <evan@eklitzke.org> - 0.15.1-13
-- Configure systemd to use bitcoin-cli stop to shutdown bitcoind
-
-* Wed Nov 29 2017 Evan Klitzke <evan@eklitzke.org>
-- Add .desktop file for bitcoin-qt testnet
-
-* Mon Nov 20 2017 Evan Klitzke <evan@eklitzke.org> - 0.15.1-11
-- Mark /etc/bitcoin.conf as a (noreplace) config file
-
-* Sun Nov 19 2017 Evan Klitzke <evan@eklitzke.org> - 0.15.1-10
-- Just use /etc/bitcoin.conf, a whole new dir seems unnecessary
-
-* Sun Nov 19 2017 Evan Klitzke <evan@eklitzke.org> - 0.15.1-9
-- Remove bitcoin-cli package (move those to bitcoind)
-- Set up a real system service for bitcoind
-
-* Wed Nov 15 2017 Evan Klitzke <evan@eklitzke.org> - 0.15.1-8
-- Remove bench_bitcoin from the bitcoin-cli package.
-
-* Wed Nov 15 2017 Evan Klitzke <evan@eklitzke.org> - 0.15.1-7
-- bitcoin-daemon -> bitcoind, bitcoin-utils -> bitcoin-cli
-
-* Wed Nov 15 2017 Evan Klitzke <evan@eklitzke.org> - 0.15.1-6
-- Fix the desktop file.
-
-* Wed Nov 15 2017 Evan Klitzke <evan@eklitzke.org> - 0.15.1-5
-- Don't depend on SELinux stuff, rename the .desktop file
-
-* Wed Nov 15 2017 Evan Klitzke <evan@eklitzke.org> - 0.15.1-4
-- Split into subpackages.
-
-* Wed Nov 15 2017 Evan Klitzke <evan@eklitzke.org> - 0.15.1-3
-- Fix test_bitcoin logic, allow building without wallet.
-
-* Wed Nov 15 2017 Evan Klitzke <evan@eklitzke.org> - 0.15.1-2
-- Remove test_bitcoin executable from bindir.
-
-* Tue Nov 14 2017 Evan Klitzke <evan@eklitzke.org> - 0.15.1-1
-- Initial build.
+* Fri Apr 19 2019 Fuzzbawls <fuzzbawls@gmail.com> - 3.2.1-1
+- Update for PIVX 3.2.1
