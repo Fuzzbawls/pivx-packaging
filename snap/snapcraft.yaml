@@ -48,7 +48,7 @@ parts:
       else
         wget https://github.com/PIVX-Project/PIVX/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/pivx-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
       fi
-      gpg --keyserver hkp://keyserver.ubuntu.com:11371 --recv-keys 6F993B250557E7B016ADE5713BDCDA2D87A881D9
+      gpg --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys 6F993B250557E7B016ADE5713BDCDA2D87A881D9
       gpg --verify SHA256SUMS.asc
       sha256sum --ignore-missing --check SHA256SUMS.asc
       if [ $SNAPCRAFT_ARCH_TRIPLET = "i386-linux-gnu" ]
