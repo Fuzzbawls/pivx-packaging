@@ -13,7 +13,7 @@
 %endif
 
 Name:    pivx
-Version: 3.3.0
+Version: 3.4.0
 Release: 1%{?dist}
 Summary: Peer to Peer Cryptographic Currency
 Group:   Applications/System
@@ -192,6 +192,9 @@ rm -rf %{buildroot}
 %exclude %{_datadir}/pivx/*.pyo
 
 %changelog
+* Mon Aug 26 2019 Fuzzbawls <fuzzbawls@gmail.com> - 3.4.0-1
+- Update for PIVX Core 3.4.0
+
 * Tue Jun 18 2019 Fuzzbawls <fuzzbawls@gmail.com> - 3.3.0-1
 - Update for PIVX Core 3.3.0
 
