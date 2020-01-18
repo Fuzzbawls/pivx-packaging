@@ -194,7 +194,7 @@ rm -rf %{buildroot}
 %exclude %{_datadir}/pivx/*.pyo
 
 %changelog
-* Thur Jan 16 2020 Fuzzbawls <fuzzbawls@gmail.com> - 4.0.2-1
+* Fri Jan 17 2020 Fuzzbawls <fuzzbawls@gmail.com> - 4.0.2-2
 - Update for PIVX Core 4.0.2
 
 * Wed Dec 18 2019 Fuzzbawls <fuzzbawls@gmail.com> - 4.0.0-1
