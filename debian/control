@@ -28,7 +28,8 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler,
  python3 | python,
  libzmq3-dev,
- dh-systemd
+ dh-systemd,
+ cargo
 Standards-Version: 3.9.2
 Homepage: http://www.pivx.org
 Vcs-Git: git://github.com/PIVX-Project/PIVX.git
