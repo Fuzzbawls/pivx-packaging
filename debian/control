@@ -26,7 +26,7 @@ Build-Depends: debhelper,
  libqt5charts5-dev | qtbase5-dev,
  libqrencode-dev,
  libprotobuf-dev, protobuf-compiler,
- python,
+ python3 | python,
  libzmq3-dev,
  dh-systemd
 Standards-Version: 3.9.2

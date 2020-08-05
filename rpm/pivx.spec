@@ -13,7 +13,7 @@
 %endif
 
 Name:    pivx
-Version: 3.4.0
+Version: 4.2.0
 Release: 1%{?dist}
 Summary: Peer to Peer Cryptographic Currency
 Group:   Applications/System
@@ -51,6 +51,8 @@ BuildRequires: libdb4-devel
 BuildRequires: libdb4-cxx-devel
 BuildRequires: qt5-qttools-devel
 BuildRequires: qt5-qtbase-devel
+BuildRequires: qt5-qtsvg-devel
+BuildRequires: qt5-qtcharts-devel
 BuildRequires: protobuf-devel
 BuildRequires: qrencode-devel
 BuildRequires: desktop-file-utils
@@ -192,6 +194,12 @@ rm -rf %{buildroot}
 %exclude %{_datadir}/pivx/*.pyo
 
 %changelog
+* Fri Jan 17 2020 Fuzzbawls <fuzzbawls@gmail.com> - 4.0.2-2
+- Update for PIVX Core 4.0.2
+
+* Wed Dec 18 2019 Fuzzbawls <fuzzbawls@gmail.com> - 4.0.0-1
+- Update for PIVX Core 4.0.0
+
 * Mon Aug 26 2019 Fuzzbawls <fuzzbawls@gmail.com> - 3.4.0-1
 - Update for PIVX Core 3.4.0
 

@@ -9,6 +9,6 @@ Exec=pivx-qt %u
 Terminal=false
 Type=Application
 Icon=pivx128
-MimeType=x-scheme-handler/bitcoin;
+MimeType=x-scheme-handler/pivx;
 Categories=Office;Finance;
 StartupWMClass=PIVX-qt
