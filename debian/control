@@ -29,7 +29,8 @@ Build-Depends: debhelper,
  python3 | python,
  libzmq3-dev,
  dh-systemd,
- cargo
+ cargo,
+ libsodium-dev
 Standards-Version: 3.9.2
 Homepage: http://www.pivx.org
 Vcs-Git: git://github.com/PIVX-Project/PIVX.git

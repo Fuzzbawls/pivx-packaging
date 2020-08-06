@@ -37,6 +37,7 @@ BuildRequires: miniupnpc-devel
 BuildRequires: gmp-devel
 BuildRequires: rust
 BuildRequires: cargo
+BuildRequires: libsodium-devel
 
 %description
 PIVX is a digital cryptographic currency that uses peer-to-peer technology to
