@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PIVX-ZKPW
+Comment=PIVX Zk Params Wizard
+GenericName=PIVX Digital Currency ZK Params Wizard Utility
+Exec=ZkParamsWizard
+Terminal=false
+Type=Application
+Categories=X-Office;X-Utilities;
+Icon=${SNAP}/meta/gui/pivx-zkpw.png
+Keywords=internet;pivx;piv;qt;main;snap;launchpad;crypto;digital;currency;coin;token;
+Version=1.0
