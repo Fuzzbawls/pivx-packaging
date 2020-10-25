@@ -72,7 +72,8 @@ parts:
       wget https://raw.githubusercontent.com/pivx-project/pivx/v${SNAPCRAFT_PROJECT_VERSION}/share/pixmaps/pivx128.png
       install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pixmaps pivx128.png
       wget https://raw.githubusercontent.com/fuzzbawls/pivx-packaging/master/snap/gui/pivx-zkpw.png
-      install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pixmaps zkpw.png
+      mv pivx-zkpw.png zkpw.png
+      install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pixmaps pivx-zkpw.png
     build-packages:
       - wget
     after:
