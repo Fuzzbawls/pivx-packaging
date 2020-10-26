@@ -35,7 +35,7 @@ apps:
     environment:
       HOME: $SNAP_USER_COMMON
   zkpw:
-    command: ZkParamsWizard
+    command: desktop-launch ZkParamsWizard
     plugs: [network, removable-media, network-bind, desktop, x11]
     environment:
       HOME: $SNAP_USER_COMMON
