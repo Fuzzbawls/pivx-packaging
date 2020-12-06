@@ -1,5 +1,5 @@
 usr/local/bin/pivxd usr/bin
 usr/local/bin/pivx-cli usr/bin
-usr/local/share/sapling-spend.params /usr/local/share/
-usr/local/share/sapling-output.params /usr/local/share/
+usr/local/share/pivx/sapling-spend.params usr/share/pivx
+usr/local/share/pivx/sapling-output.params usr/share/pivx
 debian/examples/pivx.conf etc/pivx

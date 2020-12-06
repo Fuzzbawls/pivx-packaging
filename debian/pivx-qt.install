@@ -2,7 +2,7 @@ usr/local/bin/pivx-qt usr/bin
 share/pixmaps/pivx32.xpm usr/share/pixmaps
 share/pixmaps/pivx16.xpm usr/share/pixmaps
 share/pixmaps/pivx128.png usr/share/pixmaps
-usr/local/share/sapling-spend.params /usr/local/share/
-usr/local/share/sapling-output.params /usr/local/share/
+usr/local/share/pivx/sapling-spend.params usr/share/pivx
+usr/local/share/pivx/sapling-output.params usr/share/pivx
 debian/pivx-qt.desktop usr/share/applications
 debian/pivx-qt.protocol usr/share/kde4/services/
