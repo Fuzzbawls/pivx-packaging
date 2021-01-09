@@ -104,5 +104,6 @@ parts:
       install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pixmaps pivx128.png
     build-packages:
       - wget
+      - dirmngr
     after:
       - desktop-qt5
