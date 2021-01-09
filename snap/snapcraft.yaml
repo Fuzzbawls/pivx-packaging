@@ -97,6 +97,8 @@ parts:
       tar -xvf pivx-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
       install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pivx pivx-${SNAPCRAFT_PROJECT_VERSION}/share/pivx/sapling-spend.params
       install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pivx pivx-${SNAPCRAFT_PROJECT_VERSION}/share/pivx/sapling-output.params
+      install -m 0644 -D -t /usr/share/pivx pivx-${SNAPCRAFT_PROJECT_VERSION}/share/pivx/sapling-spend.params
+      install -m 0644 -D -t /usr/share/pivx pivx-${SNAPCRAFT_PROJECT_VERSION}/share/pivx/sapling-output.params
       echo "Running tests ..."
       pivx-${SNAPCRAFT_PROJECT_VERSION}/bin/test_pivx
       install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin pivx-${SNAPCRAFT_PROJECT_VERSION}/bin/pivxd
