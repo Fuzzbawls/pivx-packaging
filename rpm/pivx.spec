@@ -33,11 +33,12 @@ BuildRequires: autoconf
 BuildRequires: automake
 BuildRequires: libevent-devel
 BuildRequires: boost-devel
-BuildRequires: miniupnpc-devel
 BuildRequires: gmp-devel
 BuildRequires: rust
 BuildRequires: cargo
 BuildRequires: libsodium-devel
+BuildRequires: libdb4-devel
+BuildRequires: libdb4-cxx-devel
 
 %description
 PIVX is a digital cryptographic currency that uses peer-to-peer technology to
@@ -50,12 +51,9 @@ Summary:        Peer to Peer Cryptographic Currency
 Group:          Applications/System
 Obsoletes:      %{name} < %{version}-%{release}
 Provides:       %{name} = %{version}-%{release}
-BuildRequires: libdb4-devel
-BuildRequires: libdb4-cxx-devel
 BuildRequires: qt5-qttools-devel
 BuildRequires: qt5-qtbase-devel
 BuildRequires: qt5-qtsvg-devel
-BuildRequires: qt5-qtcharts-devel
 BuildRequires: protobuf-devel
 BuildRequires: qrencode-devel
 BuildRequires: desktop-file-utils
