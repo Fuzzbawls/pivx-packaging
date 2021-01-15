@@ -13,7 +13,7 @@
 %endif
 
 Name:    pivx
-Version: 5.0.0
+Version: 5.0.1
 Release: 1%{?dist}
 Summary: Peer to Peer Cryptographic Currency
 Group:   Applications/System
