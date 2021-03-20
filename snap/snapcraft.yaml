@@ -16,7 +16,7 @@ confinement: strict
 apps:
   daemon:
     command: pivxd
-    plugs: [network, network-bind, removable-media]
+    plugs: [network, network-bind, home, removable-media]
     environment:
       # Override HOME so the pivx datadir is located at
       # ~/snap/pivx/common/.pivx instead of
@@ -26,7 +26,7 @@ apps:
       HOME: $SNAP_USER_COMMON
   qt:
     command: desktop-launch pivx-qt
-    plugs: [network, network-bind, unity7, desktop, desktop-legacy, wayland, x11, mir, opengl, gsettings, removable-media, screen-inhibit-control, pulseaudio, media-hub]
+    plugs: [network, network-bind, unity7, desktop, desktop-legacy, wayland, x11, mir, opengl, gsettings, removable-media, screen-inhibit-control, pulseaudio, media-hub, home]
     environment:
       HOME: $SNAP_USER_COMMON
       DISABLE_WAYLAND: 1
@@ -34,7 +34,7 @@ apps:
       XDG_DATA_DIRS: $SNAP_USER_DATA:$SNAP/usr/share:$XDG_DATA_DIRS
   cli:
     command: pivx-cli
-    plugs: [network, removable-media]
+    plugs: [network, home, removable-media]
     environment:
       HOME: $SNAP_USER_COMMON
 
