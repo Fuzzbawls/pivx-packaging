@@ -1,6 +1,6 @@
 name: pivx-core
 base: core18
-version: 5.2.0.1
+version: 5.3.0
 summary:   peer-to-peer network based digital currency
 description: |
   PIVX is an MIT licensed,
