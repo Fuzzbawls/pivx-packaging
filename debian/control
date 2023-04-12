@@ -3,7 +3,8 @@ Section: utils
 Priority: optional
 Maintainer: Fuzzbawls <fuzzbawls@gmail.com>
 Uploaders: Fuzzbawls <fuzzbawls@gmail.com>
-Build-Depends: debhelper,
+Build-Depends:
+ debhelper (>= 9.20160709) | debhelper | dh-systemd,
  devscripts,
  automake,
  libtool,
@@ -27,7 +28,6 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler,
  python3 | python,
  libzmq3-dev,
- dh-systemd,
  cargo,
  libsodium1.0.17-dev | libsodium-dev
 Standards-Version: 3.9.2
