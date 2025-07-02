@@ -24,6 +24,7 @@ Build-Depends:
  qtbase5-dev, qttools5-dev-tools, qttools5-dev,
  libqt5svg5-dev,
  libqt5charts5-dev | qtbase5-dev,
+ qt5-image-formats-plugins,
  libqrencode-dev,
  libprotobuf-dev, protobuf-compiler,
  python3 | python,
